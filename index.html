@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Jun Zhang - Personal Homepage</title>
+    <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .tag {
+        display: inline-block;
+        background-color: #e0e7ff;
+        color: #4338ca;
+        padding: 4px 10px;
+        font-size: 12px;
+        border-radius: 999px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(79, 70, 229, 0.2);
+            z-index: -1;
+        }
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            filter: blur(60px);
+            opacity: 0.15;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .publication-item {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .publication-item:hover {
+            transform: translateY(-2px);
+            border-left-color: #6366f1;
+            background-color: rgba(99, 102, 241, 0.05);
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            background-color: rgba(99, 102, 241, 0.1);
+            color: #4f46e5;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #6366f1;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        .award-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .award-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="blob top-0 left-0"></div>
+    <div class="blob bottom-0 right-0"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-indigo-600">
+                    <i class="fas fa-user-graduate mr-2"></i>Prof. Jun Zhang
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-600 hover:text-indigo-600">About</a>
+                    <a href="#research" class="nav-link text-gray-600 hover:text-indigo-600">Research</a>
+       
+                    <a href="#awards" class="nav-link text-gray-600 hover:text-indigo-600">Awards</a>
+                    <a href="#publications" class="nav-link text-gray-600 hover:text-indigo-600">Publications</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-indigo-600">Contact</a>
+                </div>
+                
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menuToggle">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden mt-2" id="mobileMenu">
+                <div class="flex flex-col space-y-2 py-2">
+                    <a href="#about" class="px-4 py-2 text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">About</a>
+                    <a href="#research" class="px-4 py-2 text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">Research</a>
+      
+                    <a href="#awards" class="px-4 py-2 text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">Awards</a>
+
+                    <a href="#publications" class="px-4 py-2 text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg">Publications</a>
+                     <a href="#contact" class="nav-link text-gray-600 hover:text-indigo-600">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container mx-auto px-4 py-16 md:py-24">
+        <div class="glass-card max-w-5xl mx-auto p-8 md:p-12">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 md:pr-8 flex justify-center">
+                    <div class="w-36 h-48 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                        <img src="pic/zhang.jpg" alt="Professor Jun Zhang" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Professor Jun Zhang</h1>
+                    <p class="text-lg text-gray-600 mb-6">
+                        <span class="font-semibold text-indigo-600">Fellow, IEEE</span> | Highly Cited Researcher
+                    </p>
+                    <p class="text-gray-700 mb-6">
+                        Professor Zhang obtained his PhD degree in Electrical Engineering from the City University of Hong Kong in 2002. Professor Zhang's research contributions include over 300 peer-reviewed publications, with more than 200 appearing in prestigious IEEE Transactions journals. His primary research focus is on Evolutionary Computation, along with interests in Computational Intelligence and Power Electronic Circuits.
+                    </p>
+
+                    <p class="text-gray-700 mb-6">
+                        Currently, Professor Zhang serves as an associate editor for both the <span class="font-semibold text-indigo-600">IEEE Transactions on Artificial Intelligence</span> and the <span class="font-semibold text-indigo-600">IEEE Transactions on Cybernetics</span>.
+                    </p>
+
+
+                    <div class="flex flex-wrap">
+                        <a href="https://scholar.google.com/citations?hl=en&user=XIhZnNEAAAAJ" target="_blank" class="flex items-center bg-indigo-600 text-white px-4 py-2 rounded-lg mr-3 mb-3 hover:bg-indigo-700 transition-colors">
+                            <i class="fab fa-google-scholar mr-2"></i> Google Scholar
+                        </a>
+                        <div class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg mr-3 mb-3">
+                            <i class="fas fa-quote-left mr-2"></i> 30,000+ citations
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container mx-auto px-4 py-12">
+        <div class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
+                    <i class="fas fa-user"></i>
+                </div>
+                Academic Profile
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Education</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4">
+                                <div class="w-4 h-4 rounded-full bg-indigo-500"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Ph.D. in Electrical Engineering</p>
+                                <p class="text-gray-600 text-sm">City University of Hong Kong, 2002</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-gray-700 mt-8 mb-4">Professional Appointments</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4">
+                                <div class="w-4 h-4 rounded-full bg-indigo-500"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Professor</p>
+                                <p class="text-gray-600 text-sm">Hanyang University ERICA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4">
+                                <div class="w-4 h-4 rounded-full bg-indigo-500"></div>
+                            </div>
+                            <div>
+                                <p class="font-medium">Associate Editor</p>
+                                <p class="text-gray-600 text-sm">IEEE Transactions on Artificial Intelligence</p>
+                                <p class="text-gray-600 text-sm">IEEE Transactions on Cybernetics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Research Impact</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">Publications</p>
+                            <p class="text-2xl font-bold text-indigo-600">300+</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">IEEE Transactions</p>
+                            <p class="text-2xl font-bold text-purple-600">200+</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">Citations</p>
+                            <p class="text-2xl font-bold text-blue-600">30,000+</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-sm text-gray-600">H-Index</p>
+                            <p class="text-2xl font-bold text-green-600">80+</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Research Highlights</h3>
+                    <p class="text-gray-700 mb-4">
+                        Professor Zhang pioneered the <span class="highlight">Matrix-Based Evolutionary Computation (MEC)</span> theoretical framework, establishing its mathematical formulation and successfully implementing MEC with supercomputing resources.
+                    </p>
+                    <p class="text-gray-700">
+                        This research has laid a theoretical foundation for solving large-scale practical applications with significant modeling challenges.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Areas -->
+    <section id="research" class="container mx-auto px-4 py-12">
+        <div class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
+                    <i class="fas fa-flask"></i>
+                </div>
+                Research Areas
+            </h2>
+            
+            <p class="text-gray-700 mb-8">
+                Professor Jun Zhang specializes in <span class="font-semibold text-indigo-600">Computational Intelligence</span> with focus on the following research directions:
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-indigo-50 to-white p-6 rounded-xl">
+                    <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mb-4">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Evolutionary Computation</h3>
+                    <p class="text-gray-600">
+                       Professor Zhang pioneered the Matrix-Based Evolutionary Computation (MEC) theoretical framework, establishing its mathematical formulation and successfully implementing it with supercomputing resources. His evolutionary algorithms simulate intelligent behaviors found in nature and operate without depending on precise mathematical models, making them suitable for solving complex optimization problems in various domains.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-4">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Swarm Intelligence</h3>
+                    <p class="text-gray-600">
+                        Professor Zhang's work in swarm intelligence includes techniques such as particle swarm optimization and ant colony optimization. These approaches have demonstrated exceptional performance in applications including traveling salesman problems, vehicle routing, and cloud resource scheduling.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-white p-6 rounded-xl">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mb-4">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Applications in Complex Environments</h3>
+                    <p class="text-gray-600">
+                       Professor Zhang applies computational intelligence approaches to real-world problems in cloud computing and big data environments. His research extends to diverse domains including news communication, finance, and resource optimization. The model-free nature of these approaches enables effective solutions for problems with high modeling complexity.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Key Research Contributions</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="mt-1 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-indigo-500"></div>
+                        </div>
+                        <div>
+                            <p class="text-gray-700">
+                                Developed the Matrix-Based Evolutionary Computation (MEC) framework for large-scale optimization problems
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="mt-1 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-indigo-500"></div>
+                        </div>
+                        <div>
+                            <p class="text-gray-700">
+                                Advanced swarm intelligence techniques including novel particle swarm optimization and ant colony optimization algorithms
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="mt-1 mr-4">
+                            <div class="w-3 h-3 rounded-full bg-indigo-500"></div>
+                        </div>
+                        <div>
+                            <p class="text-gray-700">
+                                Applied computational intelligence to solve complex real-world problems in cloud computing, big data, and intelligent transportation systems
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Awards -->
+    <section id="awards" class="container mx-auto px-4 py-12">
+        <div class="glass-card p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
+                    <i class="fas fa-award"></i>
+                </div>
+                Awards and Honors
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 mr-4">
+                            <i class="fas fa-trophy text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">2024 Highly Cited Researchers (HCR)</h3>
+                            <p class="text-gray-600">Listed among the top 0.1% of global researchers in the field of Computer Science</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-user-tie text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">IEEE Fellow</h3>
+                            <p class="text-gray-600">Recognized for outstanding contributions to evolutionary computation and computational intelligence</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-4">
+                            <i class="fas fa-star text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800">China National Funds for Distinguished Young Scientists</h3>
+                            <p class="text-gray-600">Awarded by the National Natural Science Foundation of China in 2011</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col items-center">
+                        <img src="pic/dingjian.jpg" alt="Award Certificate" class="award-image mb-2">
+                        <p class="text-sm text-gray-600 text-center">Highly Cited Researcher Certificate</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="pic/IEEE_fellow.jpg" alt="IEEE Fellow" class="award-image mb-2">
+                        <p class="text-sm text-gray-600 text-center">IEEE Fellow Recognition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+     <section id="publications" class="container mx-auto px-4 py-12">
+  <div class="glass-card p-8 mb-12">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+      <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
+        <i class="fas fa-book"></i>
+      </div>
+      Publications (2023–2025)
+    </h2>
+    <div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">2025</h3>
+      <div class="space-y-4">
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">XF Liu, YT Dai, Y Fang, X Yu, ZH Zhan, Jun Zhang, “Fragment-Based Knowledge Transfer for Multi-Task Capacitated Vehicle Routing,” IEEE Transactions on Intelligent Transportation Systems, Early Access, DOI: 10.1109/TITS.2025.3563961</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Transportation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">XF Liu, YT Dai, Y Fang, X Yu, ZH Zhan, Jun Zhang, “Long-Distance Charge-Route Planning for Electric Vehicles: A Multi-Solution Approach,” IEEE Transactions on Transportation Electrification, Early Access, DOI: 10.1109/TTE.2025.3563094.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Transportation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">D Zhu, J Shen, J Hu, Z Ouyang, G Hu, C Zhou, Jun Zhang, S Cheng, “Group Merging Particle Swarm Optimization Algorithm for Rural Base Station Deployment,” IEEE Transactions on Emerging Topics in Computational Intelligence, Early Access, DOI: 10.1109/TETCI.2025.3558433.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Swarm Intelligence</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">XL Shi, WN Chen, FF Wei, Jun Zhang, “A Distributed Ant Colony System with Pheromone Transfer for Multiagent Traveling Salesmen Problem,” IEEE Transactions on Evolutionary Computation, Early Access, DOI: 10.1109/TEVC.2025.3562437.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Ant Colony Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">M Yu, J Du, X Xu, J Xu, F Jiang, S Fu, Jun Zhang, A Liang, “A multi-strategy enhanced Dung Beetle Optimization for real-world engineering problems and UAV path planning,” Alexandria Engineering Journal, vol. 118, pp. 406-434, 2025.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">XY Zhang, JH Yang, YJ Gong, ZH Zhan, Jun Zhang, “Tree Structured Cooperative Coevolutionary Genetic Algorithm for Fragment Reconstruction,” IEEE Transactions on Evolutionary Computation, Early Access, DOI: DOI: 10.1109/TEVC.2025.3550742.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">DT Duan, JY Li, B Sun, XF Liu, Q Yang, QJ Jiang, ZH Zhan, S Kwong, Jun Zhang, “Large-Scale Heliostat Field Optimization for Solar Power Tower System Using Matrix-Based Differential Evolution,” IEEE Transactions on Artificial Intelligence, Early Access, DOI: 10.1109/TAI.2025.3545813.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">D Duan, B Sun, Q Yang, L Ye, Q Zhang, Jun Zhang, “An adaptive matrix-based evolutionary computation framework for EEG feature selection,” Memetic Computing, vol. 17, no. 1, pp. 406-434, 2025.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Feature Selection</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">QT Yang, XX Xu, ZH Zhan, J Zhong, S Kwong, Jun Zhang, “Evolutionary Multitask Optimization for Multiform Feature Selection in Classification,” IEEE Transactions on Cybernetics, Early Access, DOI: 10.1109/TCYB.2025.3535722.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Feature Selection</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">GY Lin, ZG Chen, C Liu, Y Jiang, S Kwong, Jun Zhang, ZH Zhan, “A Landscape-Aware Differential Evolution for Multimodal Optimization Problems,” IEEE Transactions on Evolutionary Computation, Early Access, DOI: 10.1109/TEVC.2025.3545602</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">H Cong, XM Hu, WN Chen, W Shi, Jun Zhang, “Evolutionary Algorithm Based on Multi-probability Distribution Model for Stochastic Optimization,” Swarm and Evolutionary Computation, p. 101839, 2025.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Swarm Intelligence</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">G Yang, FF Wei, XM Hu, SW Jeon, Jun Zhang, WN Chen, “An Asynchronous Distributed Cooperative Coevolutionary Algorithm for Multilayer Influence Maximization,” IEEE Transactions on Computational Social Systems, Early Access, DOI: 10.1109/TCSS.2025.3531976</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">J Zhong, J Dong, WL Liu, L Feng, Jun Zhang, “Multiform Genetic Programming Framework for Symbolic Regression Problems,” IEEE Transactions on Evolutionary Computation, Early Access</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">TY Chen, WN Chen, JK Hao, Y Wang, Jun Zhang, “Multi-Agent Evolution Strategy With Cooperative and Cumulative Step Adaptation for Black-Box Distributed Optimization,” IEEE Transactions on Evolutionary Computation, Early Access, DOI: 10.1109/TCSS.2025.3531976</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">2024</h3>
+      <div class="space-y-4">
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">MAM Elhassan, C Zhou, D Zhu, ABM Adam, A Benabid, A Khan, A Meh, Jun Zhang, H Jin, and S. W. Jeon, "CSNet: Cross-Stage Subtraction Network for Real-Time Semantic Segmentation in Autonomous Driving," IEEE Transactions on Intelligent Transportation Systems, vol. 26, no. 3, pp. 4093-4108, March 2025, doi: 10.1109/TITS.2024.3519162</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Transportation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Y. Kong, X. Chen, Y. Jiang, D. Sun and Jun Zhang, "Novel Discretized Zeroing Neural Network Models for Time-Varying Optimization Aided With Predictor–Corrector Methods," in IEEE Transactions on Neural Networks and Learning Systems, doi: 10.1109/TNNLS.2024.3512505</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Neural Network</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">X. Wei, Y. Qiu, X. Xu, J. Xu, J. Mei and Jun Zhang, "ECINFusion: A Novel Explicit Channel-Wise Interaction Network for Unified Multi-Modal Medical Image Fusion," in IEEE Transactions on Circuits and Systems for Video Technology, vol. 35, no. 5, pp. 4011-4025, May 2025, doi: 10.1109/TCSVT.2024.3516705.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Computational Intelligence</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">F. -F. Wei, W. -N. Chen and Jun Zhang, "AIEA: An Asynchronous Influence-Based Evolutionary Algorithm for Expensive Many-Objective Optimization," in IEEE Transactions on Cybernetics, vol. 55, no. 2, pp. 786-799, Feb. 2025, doi: 10.1109/TCYB.2024.3501360.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Z. -F. Xue, Z. -J. Wang, Y. Jiang, Z. -H. Zhan, S. Kwong and Jun Zhang, "Multi-Level and Multi-Segment Learning Multitask Optimization via a Niching Method," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3511941.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Neural Network</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Y. -H. Sun, T. Huang, J. -H. Zhong, Jun Zhang and Y. -J. Gong, "Symbolic Regression-Assisted Offline Data-Driven Evolutionary Computation," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3482326.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Z. -F. Xue, Z. -J. Wang, Z. -H. Zhan, S. Kwong and Jun Zhang, "Neural Network-Based Knowledge Transfer for Multitask Optimization," in IEEE Transactions on Cybernetics, vol. 54, no. 12, pp. 7541-7554, Dec. 2024, doi: 10.1109/TCYB.2024.3469371.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Neural Network</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Z. -F. Xue, Z. -J. Wang, Z. -H. Zhan, S. Kwong and Jun Zhang, "Neural Network-Based Knowledge Transfer for Multitask Optimization," in IEEE Transactions on Cybernetics, vol. 54, no. 12, pp. 7541-7554, Dec. 2024, doi: 10.1109/TCYB.2024.3469371.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Neural Network</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Y. -T. Dai, X. -F. Liu, Y. Fang, Z. -H. Zhan and Jun Zhang, "Multi-Source Knowledge Fusion Based on Graph Attention Networks for Many-Task Optimization," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3465542.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">S.-M. Liang, Z.-J. Wang, Y.-B. Huang, Z.-H. Zhan, S. Kwong, and Jun Zhang, “Niche center identification differential evolution for multimodal optimization problems,” Information Sciences, vol. 678, p. 121009, 2024.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Q. -T. Yang, J. -Y. Li, Z. -H. Zhan, Y. Jiang, Y. Jin and Jun Zhang, "A Hierarchical and Ensemble Surrogate-Assisted Evolutionary Algorithm With Model Reduction for Expensive Many-Objective Optimization," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3440354.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">F. -F. Wei, W. -N. Chen, X. -Q. Guo, B. Zhao, S. -W. Jeon and Jun Zhang, "CrowdEC: Crowdsourcing-Based Evolutionary Computation for Distributed Optimization," in IEEE Transactions on Services Computing, vol. 17, no. 6, pp. 3286-3299, Nov.-Dec. 2024, doi: 10.1109/TSC.2024.3433487.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">W.-L. Liu, J. Zhong, P. Liang, J. Guo, H. Zhao, and Jun Zhang, “Towards explainable traffic signal control for urban networks through genetic programming,” Swarm and Evolutionary Computation, vol. 88, p. 101588, 2024.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Swarm Intelligence</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Y. B. Huang, Z. J. Wang, Y. H. Zhang, Y. G. Wang, S. Kwong, and Jun Zhang, “Wireless sensor networks-based adaptive differential evolution for multimodal optimization problems,” Applied Soft Computing, vol. 158, p. 111541, 2024.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">J. Dong, J. Zhong, W. -L. Liu and Jun Zhang, "Evolving Equation Learner For Symbolic Regression," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3404650.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">W. -J. Qiu, X. -M. Hu, A. Song, Jun Zhang and W. -N. Chen, "A Scalable Parallel Coevolutionary Algorithm With Overlapping Cooperation for Large-Scale Network-Based Combinatorial Optimization," in IEEE Transactions on Systems, Man, and Cybernetics: Systems, vol. 54, no. 8, pp. 4806-4818, Aug. 2024, doi: 10.1109/TSMC.2024.3389751.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">T. -Y. Chen, W. -N. Chen, X. -Q. Guo, Y. -J. Gong and Jun Zhang, "A Multiagent Co-Evolutionary Algorithm With Penalty-Based Objective for Network-Based Distributed Optimization," in IEEE Transactions on Systems, Man, and Cybernetics: Systems, vol. 54, no. 7, pp. 4358-4370, July 2024, doi: 10.1109/TSMC.2024.3380389.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Z. Ma, J. Zhong, W. -L. Liu and Jun Zhang, "Accelerating Evolutionary Multitasking Optimization With a Generalized GPU-Based Framework," in IEEE Transactions on Emerging Topics in Computational Intelligence, vol. 8, no. 6, pp. 3995-4010, Dec. 2024, doi: 10.1109/TETCI.2024.3381512. k</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">H. Guo,  Y. Ma,  Z. Ma,  J. Chen,  X. Zhang,  Z. Cao,  Jun Zhang,  Y. -J. Gong, "Deep Reinforcement Learning for Dynamic Algorithm Selection: A Proof-of-Principle Study on Differential Evolution," in IEEE Transactions on Systems, Man, and Cybernetics: Systems, vol. 54, no. 7, pp. 4247-4259, July 2024, doi: 10.1109/TSMC.2024.3374889.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Neural Network</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">P. -F. Sun,  J. -Y. Li,  M. -Y. Li,  Z. -Y. Gao,  H. Jin,  S. -W. Jeon,  Jun Zhang, "Tour Multi-Route Planning With Matrix-Based Differential Evolution," in IEEE Transactions on Intelligent Transportation Systems, vol. 25, no. 9, pp. 11753-11767, Sept. 2024, doi: 10.1109/TITS.2024.3381344.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Transportation</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">T. -Y. Chen, W. -N. Chen, F. -F. Wei, X. -M. Hu and Jun Zhang, "Multi-Agent Swarm Optimization With Adaptive Internal and External Learning for Complex Consensus-Based Distributed Optimization," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3380436.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Swarm Intelligence</span>
+            <span class="tag">Neural Network</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">J. Hong, Z. -H. Zhan, L. He, Z. Xu and Jun Zhang, "Protein Structure Prediction Using A New Optimization-Based Evolutionary and Explainable Artificial Intelligence Approach," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3365814.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">X. -Q. Guo, F. -F. Wei, Jun Zhang and W. -N. Chen, "A Classifier-Ensemble-Based Surrogate-Assisted Evolutionary Algorithm for Distributed Data-Driven Optimization," in IEEE Transactions on Evolutionary Computation, doi: 10.1109/TEVC.2024.3361000.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Q. T. Yang, Z. Y. Qiao, P. L. Xu, X. Lin, X. D. Gao, Z. J. Wang, Z. Y. Lu, S. W. Jeon, and Jun Zhang, “Triple competitive differential evolution for global numerical optimization,” Swarm and Evolutionary Computation, vol. 84, p. 101450, 2024.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Swarm Intelligence</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Y. Jiang, Z. -H. Zhan, K. C. Tan, S. Kwong and Jun Zhang, "Knowledge Structure Preserving-Based Evolutionary Many-Task Optimization," in IEEE Transactions on Evolutionary Computation, vol. 29, no. 2, pp. 287-301, April 2025, doi: 10.1109/TEVC.2024.3355781.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">B. Zhao, W. -N. Chen, F. -F. Wei, X. Liu, Q. Pei and Jun Zhang, "PEGA: A Privacy-Preserving Genetic Algorithm for Combinatorial Optimization," in IEEE Transactions on Cybernetics, vol. 54, no. 6, pp. 3638-3651, June 2024, doi: 10.1109/TCYB.2023.3346863.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Privacy</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">S.-C. Lei, Y.-J. Gong, X.-L. Xiao, Y.-C. Zhou, and Jun Zhang, “Tensorial Evolutionary Optimization for Natural Image Matting,” ACM Transactions on Multimedia Computing, Communications, and Applications, vol. 20, no. 7. pp. 1-23, 2024.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">B Sun, JY Li, XF Liu, Q Yang, ZH Zhan, Jun Zhang, “A Privacy-Preserving Evolutionary Computation Framework for Feature Selection,” IEEE Transactions on Evolutionary Computation, vol. 28, no. 6, pp. 1867-1881, Dec.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Feature Selection</span>
+            <span class="tag">Privacy</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-indigo-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">X.-F. Liu, Z.-H. Zhan, and Jun Zhang, “Transfer-Based Particle Swarm Optimization for Large-Scale Dynamic Optimization With Changing Variable Interactions,” IEEE Transactions on Evolutionary Computation, vol. 28, no. 6, pp. 1633–1643, Dec.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Swarm Intelligence</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-purple-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">X.-L. Shi, W.-N. Chen, J.-H. Zhong, and Jun Zhang, “A Max–Min Ant System With Repetitive Influence Reduction Strategy for Interactive Dissemination of Positive and Negative Information,” IEEE Transactions on Computational Social Systems, vol. 11, no. 3, pp. 3255–3267, Jun.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Computational Intelligence</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-blue-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">X. Cao, Y. Lin, D. Liu, H. B.-L. Duh, and Jun Zhang, “Large-Scale Parallel Cognitive Diagnostic Test Assembly Using A Dual-Stage Differential Evolution-Based Approach,” IEEE Transactions on Artificial Intelligence, vol. 5, no. 6, pp. 3120–3133, Jun.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Computational Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold text-gray-700 mb-4">2023</h3>
+      <div class="space-y-4">
+        <div class="publication-item p-4 rounded-lg border-l-4 border-green-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">Q. -T. Yang, Z. -H. Zhan, X. -F. Liu, J. -Y. Li and Jun Zhang, “Grid Classification-Based Surrogate-Assisted Particle Swarm Optimization for Expensive Multiobjective Optimization,” IEEE Transactions on Evolutionary Computation, vol. 28, no. 6, pp. 1867-1881, Dec.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Evolutionary Computation</span>
+            <span class="tag">Swarm Intelligence</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-red-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">S. Liu, Z.-J. Wang, Y.-G. Wang, S. Kwong, and Jun Zhang, “Bi-directional learning particle swarm optimization for large-scale optimization,” Applied Soft Computing, vol. 149, p. 110990, Dec.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Swarm Intelligence</span>
+            <span class="tag">Neural Network</span>
+            <span class="tag">Optimization</span>
+          </div>
+        </div>
+        <div class="publication-item p-4 rounded-lg border-l-4 border-yellow-500 bg-white shadow hover:shadow-md transition">
+          <p class="font-medium text-gray-800 text-sm leading-relaxed">S.-C. Lei, Y.-J. Gong, X.-L. Xiao, Y. Zhou, and Jun Zhang, “Boosting Diversity in Visual Search with Pareto Non-Dominated Re-Ranking,” ACM Transactions on Multimedia Computing, Communications, and Applications, vol. 20, no. 3, pp. 1–23, Nov.</p>
+          <div class="flex flex-wrap mt-2 gap-2">
+            <span class="tag">Computational Intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="container mx-auto px-4 py-12">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">Contact Information</h2>
+    <div class="glass-card p-6 rounded-xl">
+        <div>
+            <h3 class="text-xl font-semibold mb-6 text-indigo-700">Get in Touch</h3>
+            <div class="flex flex-col md:flex-row justify-between md:space-x-12">
+                <!-- Address -->
+                <div class="flex items-start mb-6 md:mb-0 md:flex-1">
+                    <div class="bg-indigo-100 p-2 rounded-full mr-4">
+                        <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium">Address</p>
+                        <p class="text-slate-600">Hanyang University ERICA Campus, Engineering Building 3, Room 408</p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="flex items-start mb-6 md:mb-0 md:flex-1">
+                    <div class="bg-indigo-100 p-2 rounded-full mr-4">
+                        <i class="fas fa-envelope text-indigo-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium">Email</p>
+                        <p class="text-slate-600">jun.zhang@hanyang.ac.kr</p>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex items-start md:flex-1">
+                    <div class="bg-indigo-100 p-2 rounded-full mr-4">
+                        <i class="fas fa-phone text-indigo-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-medium">Phone</p>
+                        <p class="text-slate-600">010-6633-3883</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-600">© 2024 Professor Jun Zhang</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://scholar.google.com/citations?hl=en&user=XIhZnNEAAAAJ" target="_blank" class="text-gray-600 hover:text-indigo-600">
+                        <i class="fab fa-google-scholar text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (document.getElementById('mobileMenu').classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (document.getElementById('mobileMenu').classList.contains('active')) {
+                        document.getElementById('mobileMenu').classList.remove('active');
+                        document.querySelector('#menuToggle i').classList.remove('fa-times');
+                        document.querySelector('#menuToggle i').classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
